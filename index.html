@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>QuikTunes</title>
+        <!--Boostrap's CSS-->
+        <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+        <!--Custom CSS-->
+        <link rel="stylesheet" type="text/css" href="./css/styles.css">
+    </head>
+    <body>
+        <div class="container" id="page-container">
+            <h1 id="app-name">
+                <span class="glyphicon glyphicon-music"></span> QuikPlay
+            </h1>
+            <h2 id="page-header">
+                Turn your free time to tunes time!
+            </h2>
+            <div class="btn-wrapper">
+                <label for="usr" class="form-font">Free Time (minutes):</label>
+                <input type="number" class="form-control" id="usr">
+                <br>
+                <input type="button" class="btn btn-info" id="findmusic" value="Find me Music!">
+                <button type="button" class="btn btn-info" id="refreshbtn">Reset</button>
+            </div>
+        </div>
+
+        <!--jQuery Script-->
+        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+        <!--Bootstrap Script-->
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!--Custom Script-->
+        <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+        <script src="./js/main.js"></script>
+    </body>
+</html>
