@@ -6,8 +6,22 @@
         <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
         <!--Custom CSS-->
         <link rel="stylesheet" type="text/css" href="./css/styles.css">
+        <meta property="og:url"                content="http://quikplay.azurewebsites.net/"/>
+        <meta property="og:type"               content="website" />
+        <meta property="og:title"              content="QuikPlay: Turn your free time to Tunes time!" />
+        <meta property="og:description"        content="A simple web app made by Vania Ariani for Microsoft Student Accelerator Module 2 submission, 2016" />
+        <meta property="og:image"              content=".images/fb-image.png" />
     </head>
     <body>
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.7&appId=840417272760715";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
         <div class="container" id="page-container">
             <h1 id="app-name">
                 <span class="glyphicon glyphicon-music"></span> QuikPlay
@@ -24,6 +38,8 @@
                 <br> <br>
                 <button type="button" class="btn btn-info" id="findmusic">Find me music!</button>
                 <button type="button" class="btn btn-info" id="refreshbtn" onClick="window.location.reload()">Reset</button>
+                <br>
+                <div class="fb-share-button" data-href="http://quikplay.azurewebsites.net/" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fquikplay.azurewebsites.net%2F&amp;src=sdkpreparse">Share</a></div>
             </div>
             <div id="musicplayer"></div>
         </div>

@@ -6,6 +6,7 @@ var question = $("#question")[0];
 var usr = $("#usr")[0];
 var findmusic = $("#findmusic")[0];
 var refreshbtn = $("#refreshbtn")[0];
+var fbsharebutton = $("#fb-share-button")[0];
 // Register event listeners
 findmusic.addEventListener("click", function () {
     pageheader.innerHTML = ("Tuning it up...");
@@ -19,13 +20,17 @@ findmusic.addEventListener("click", function () {
 function processTime(callback) {
     var time = $("#usr").val();
     if (isNaN(time)) {
-        if (time.toString() == "e") {
+        if (time.toString() == "e" || time.toString() == "." || time.toString() == "E") {
             console.log("Invalid input");
             pageheader.innerHTML = "Please input a number.";
         }
-        else if (time.toString() == "") {
+        else if (time == null) {
             console.log("Invalid input");
             pageheader.innerHTML = "Please don't leave the field blank!";
+        }
+        else if (time <= 0) {
+            console.log("Invalid input");
+            pageheader.innerHTML = "Please input positive numbers only";
         }
         else {
             //time *= 60000; //convert user's minutes to miliseconds for SoundCloud
@@ -47,6 +52,8 @@ function changeUI() {
     findmusic.style.display = "none";
     //Display song refresh button
     refreshbtn.style.display = "inline";
+    //Display facebook share button
+    fbsharebutton.style.display = "inline";
     //Remove offset at the top
     pagecontainer.style.marginTop = "20px";
     //TODO: display facebook share button
@@ -54,9 +61,9 @@ function changeUI() {
 ;
 //A Duration class which has the duration boundaries as a string
 var Duration = (function () {
-    function Duration(mood) {
-        this.mood = mood;
-        this.lengthtime = mood;
+    function Duration(min) {
+        this.min = min;
+        this.lengthtime = min;
     }
     return Duration;
 }());
@@ -85,7 +92,7 @@ function getTypeDuration(scores) {
     }
     return this.TimetoListen;
 }
-//A Playlist class which holds various amount of songs for each different mood
+//A Playlist class which holds various amount of songs for each different duration
 var Playlist = (function () {
     function Playlist() {
         this.short = [];
@@ -135,7 +142,7 @@ function init() {
     initSC();
 }
 function loadSong(TimetoListen) {
-    var songSelected = myPlaylist.getRandSong(TimetoListen.lengthtime); // gets a random song based on the moodd
+    var songSelected = myPlaylist.getRandSong(TimetoListen.lengthtime); // gets a random song
     var track_url = songSelected.url;
     $("#track-name")[0].innerHTML = "Have a listen to: " + songSelected.title; // display the song being played
     $("#track-name")[0].style.display = "block"; // changing this style to block makes it appear (before was set to none so it wasnt seen)

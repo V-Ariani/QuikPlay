@@ -23,6 +23,10 @@ button#refreshbtn {
     display:none;
 }
 
+.fb-share-button {
+    display:none;
+}
+
  button#findmusic {
     display:block;
     margin: auto;
