@@ -28,12 +28,12 @@ function processTime(callback) {
             pageheader.innerHTML = "Please don't leave the field blank!";
         }
         else {
-            time *= 60000; //convert user's minutes to miliseconds for SoundCloud
+            //time *= 60000; //convert user's minutes to miliseconds for SoundCloud
             callback(time);
         }
     }
     else {
-        time *= 60000; //convert user's minutes to miliseconds for SoundCloud
+        //time *= 60000; //convert user's minutes to miliseconds for SoundCloud
         callback(time);
     }
 }
@@ -74,10 +74,10 @@ var Song = (function () {
 }());
 function getTypeDuration(scores) {
     // the user's free time can be divided into the following duration boundaries (this is to make it simple to search)
-    if (scores <= 120000) {
+    if (scores <= 2) {
         TimetoListen = short;
     }
-    else if (scores > 120000 && scores <= 600000) {
+    else if (scores > 2 && scores <= 10) {
         TimetoListen = medium;
     }
     else {

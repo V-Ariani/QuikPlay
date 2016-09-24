@@ -14,7 +14,7 @@ var refreshbtn = $("#refreshbtn")[0];
 // Register event listeners
 findmusic.addEventListener("click", function () {
     pageheader.innerHTML = ("Tuning it up...");
-    processTime(function (time) { //process user input to get time
+    processTime(function (time) { //process user input to check for correct types
         TimetoListen = getTypeDuration(time) //get the type of duration for finding song!
         changeUI(); //update web app with song!
         loadSong(TimetoListen); //load song according to the duration
@@ -34,12 +34,12 @@ function processTime(callback) {
             pageheader.innerHTML = "Please don't leave the field blank!";
         }
         else {
-            time *= 60000; //convert user's minutes to miliseconds for SoundCloud
+            //time *= 60000; //convert user's minutes to miliseconds for SoundCloud
             callback(time);
         }
     }
     else {
-        time *= 60000; //convert user's minutes to miliseconds for SoundCloud
+        //time *= 60000; //convert user's minutes to miliseconds for SoundCloud
         callback(time);
     }
 }
@@ -87,14 +87,16 @@ class Song {
 
 function getTypeDuration(scores : any) : Duration {
     // the user's free time can be divided into the following duration boundaries (this is to make it simple to search)
-    if (scores <= 120000) {
+    if (scores <= 2) {
         TimetoListen = short;
-    } else if (scores > 120000 && scores <= 600000) {
+    } 
+    else if (scores > 2 && scores <= 10) {
         TimetoListen = medium;
-    } else {
+    } 
+    else {
         TimetoListen = long;
     }
-    return TimetoListen;
+return TimetoListen;
 }
 
 //A Playlist class which holds various amount of songs for each different mood
