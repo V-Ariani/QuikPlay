@@ -17,7 +17,7 @@ findmusic.addEventListener("click", function () {
 });
 //processing input and converting for API call
 function processTime(callback) {
-    var time = $("#findmusic").val();
+    var time = $("#usr").val();
     if (isNaN(time)) {
         if (time.toString() == "e") {
             console.log("Invalid input");
@@ -75,15 +75,15 @@ var Song = (function () {
 function getTypeDuration(scores) {
     // the user's free time can be divided into the following duration boundaries (this is to make it simple to search)
     if (scores <= 2) {
-        TimetoListen = short;
+        this.TimetoListen = short;
     }
     else if (scores > 2 && scores <= 10) {
-        TimetoListen = medium;
+        this.TimetoListen = medium;
     }
     else {
-        TimetoListen = long;
+        this.TimetoListen = long;
     }
-    return TimetoListen;
+    return this.TimetoListen;
 }
 //A Playlist class which holds various amount of songs for each different mood
 var Playlist = (function () {
