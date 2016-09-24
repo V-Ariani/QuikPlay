@@ -23,6 +23,11 @@ button#refreshbtn {
     display:none;
 }
 
+ button#findmusic {
+    display:block;
+    margin: auto;
+}
+
 h2#page-header {
     padding-top:20px;
     padding-bottom:20px;
@@ -40,10 +45,6 @@ body #page-container {
  }
 
  input#usr {
-    display:block;
-}
-
- button#findmusic {
     display:block;
 }
 

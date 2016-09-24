@@ -25,12 +25,18 @@ findmusic.addEventListener("click", function () {
 function processTime(callback) {
     var time = $("#findmusic").val();
     if (isNaN(time)) {
-        console.log("Invalid input");
-        pageheader.innerHTML = "Please input a number.";
-    }
-    else if (time == "e") {
-        console.log("Invalid input");
-        pageheader.innerHTML = "Please input a number.";
+        if (time.toString() == "e") {
+            console.log("Invalid input");
+            pageheader.innerHTML = "Please input a number.";
+        }
+        else if (time.toString() == "") { 
+            console.log("Invalid input");
+            pageheader.innerHTML = "Please don't leave the field blank!";
+        }
+        else {
+            time *= 60000; //convert user's minutes to miliseconds for SoundCloud
+            callback(time);
+        }
     }
     else {
         time *= 60000; //convert user's minutes to miliseconds for SoundCloud
