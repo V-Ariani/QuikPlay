@@ -15,13 +15,17 @@
             <h2 id="page-header">
                 Turn your free time to tunes time!
             </h2>
+            <h4 id="track-name"></h4>
             <div class="btn-wrapper">
-                <label for="usr" class="form-font">Free Time (minutes):</label>
-                <input type="number" class="form-control" id="usr">
+                <label class="form-font" id="question" for="usr">
+                    Free Time (minutes):
+                    <input type="number" class="form-control" id="usr" min=1>
+                </label>
                 <br>
-                <input type="button" class="btn btn-info" id="findmusic" value="Find me Music!">
-                <button type="button" class="btn btn-info" id="refreshbtn">Reset</button>
+                <button type="button" class="btn btn-info" id="findmusic">Find me music!</button>
+                <button type="button" class="btn btn-info" id="refreshbtn" onClick="window.location.reload()">Reset</button>
             </div>
+            <div id="musicplayer"></div>
         </div>
 
         <!--jQuery Script-->
